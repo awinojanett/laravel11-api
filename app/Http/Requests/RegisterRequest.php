@@ -28,4 +28,27 @@ class RegisterRequest extends FormRequest
             'phone'=>'required|digits:10',
         ];
     }
+
+    /**
+     * Get the validation errors messages that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Please enter your name',
+            'name.min' => 'Name must be atleast 5 chars long',
+            'name.max' => 'Name must not be more than 150 chars',
+            'email.required' => 'Please enter your email address',
+            'email.email' => 'Email must be a valid email address',
+            'email.unique' => 'Email is already taken. Please try with other email address',
+            'password.required' => 'Please enter your password',
+            'password.min' => 'Password must be atleast 5 chars long',
+            'password.max' => 'Password must not be more than 25 chars',
+            'phone.required' => 'Please enter your phone number',
+            'phone.digits' => 'Phone number must be 10 digits number',
+        ];
+    }
 }
